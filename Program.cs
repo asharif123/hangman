@@ -1,5 +1,4 @@
-﻿///Hangman is a game where a word is secretly chosen and the player guesses letters to fill in the word.
-/*Each correct guess fills in that letter in the word. Guess too many wrong letters and the player loses.
+﻿/*Each correct guess fills in that letter in the word. Guess too many wrong letters and the player loses.
 Tips: It is all a matter of taking the letter the player guesses and looping through the word comparing it to
 each letter in the word character by character. If the letters match, you show that letter to the player. 
 If you reach the end of the word and no letters have been matched, it is a wrong guess.
@@ -10,23 +9,36 @@ Added Difficulty: Increase the length of the words and choose more complex unkno
 
 //STEPS:
 
-//Get a random entry from the list
+
 //write a block to determine if a character is part of a string
 //write a block that outputs current state  of game (ex: _ _ N _ E _). Console.Clear() can help make things look better
 //Look at Console.Readkey() to make things look nicer
 //Pack all this in a loop and keep track of tries
 */
+///Hangman is a game where a word is secretly chosen and the player guesses letters to fill in the word.
 namespace hangman
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            //user has 8 tries to guess the word correctly
+            const int NUMBER_OF_TRIES = 8;
+
             //Fill a list with possible words
             var hangmanWords = new List<string>(){"jazz", "buzz", "lightyear", "cloud", "quiz", "scatter", "die", "excuse",
             "zinc", "number", "lucky", "amber", "cherish", "brisk", "bounty", "chili", "chilly", "chili", "ghost", "gross", 
              "harvest", "mask", "musk", "must", "parade", "plenty", "savory", "season", "spicy", "trail", "zesty", "zebra",
-            "ocean", "sea"};
+            "ocean", "sea", "kingkong", "pingpong"};
+            
+            //Get a random entry from the list
+            Random rng = new Random();
+            int randomWord = rng.Next(0, hangmanWords.Count+1);
+
+            //print random word
+            string chosenWord = hangmanWords[randomWord];
+
+            //use while loop to track user's guesses
         }
     }
 }

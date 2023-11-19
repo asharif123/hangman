@@ -36,10 +36,12 @@ namespace hangman
             Console.WriteLine("Selecting a random word...\n");
             //2 second delay
             System.Threading.Thread.Sleep(2000);
+
             Random rng = new Random();
             int randomWord = rng.Next(0, hangmanWords.Count + 1);
             //print random word
             string chosenWord = hangmanWords[randomWord];
+
             int guessesLeft = NUMBER_OF_TRIES;
             Console.Write($"You have {NUMBER_OF_TRIES} tries to guess all the letters of the chosen word!\n");
 
@@ -51,11 +53,11 @@ namespace hangman
             while (guessesLeft > NO_MORE_GUESSES_LEFT)
             {
                 Console.WriteLine("\nPlease enter a letter: \n");
+                string userGuess = Console.ReadLine().ToLower().Trim();
+                Console.WriteLine(userGuess);
                 //once user enters letter, check if letter is in the randomly chosen word
-                string userGuess = Console.ReadLine().Trim().ToLower();
                 if (chosenWord.Contains(userGuess))
                 {
-                    Console.ReadKey();
                 }
                 else
                 {

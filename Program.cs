@@ -60,10 +60,10 @@ namespace hangman
                 }
                 else
                 {
-                    Console.WriteLine($"\nSorry, the letter {userGuess} is not in the word!");
-                    Console.WriteLine($"\nYou have {guessesLeft - 1} guesses left!\n");
                     //decrement guessesLeft if user enters incorrect letter
                     guessesLeft -= 1;
+                    Console.WriteLine($"\nSorry, the letter {userGuess} is not in the word!");
+                    Console.WriteLine($"\nYou have {guessesLeft} guesses left!\n");
                 }
             }
             //show correct word if user runs out of guesses

@@ -26,6 +26,7 @@ namespace hangman
             //user has 6 tries to guess the word correctly
             const int NUMBER_OF_TRIES = 6;
             const int NO_MORE_GUESSES_LEFT = 0;
+            int guessesLeft = NUMBER_OF_TRIES;
             //Fill a list with possible words
             var hangmanWords = new List<string>(){"jazz", "buzz", "lightyear", "cloud", "quiz", "scatter", "die", "excuse",
             "zinc", "number", "lucky", "amber", "cherish", "brisk", "bounty", "chili", "chilly", "chili", "ghost", "gross",
@@ -42,7 +43,6 @@ namespace hangman
             //print random word
             string chosenWord = hangmanWords[randomWord];
 
-            int guessesLeft = NUMBER_OF_TRIES;
             Console.Write($"You have {NUMBER_OF_TRIES} tries to guess all the letters of the chosen word!\n");
 
             //use while loop to track user's guesses

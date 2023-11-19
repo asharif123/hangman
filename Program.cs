@@ -58,12 +58,12 @@ namespace hangman
                 string userGuess = Console.ReadLine().Trim().ToLower();
                 if (chosenWord.Contains(userGuess))
                 {
-
+                    Console.WriteLine("Great!\n");
                 }
                 else
                 {
-                    Console.WriteLine($"Sorry, {userGuess} does not exist!\n");
-                    Console.WriteLine($"You have {guessesLeft-1} left!\n");
+                    Console.WriteLine($"\nSorry, {userGuess} does not exist!");
+                    Console.WriteLine($"\nYou have {guessesLeft-1} guesses left!");
                     //decrement guessesLeft if user enters incorrect letter
                     guessesLeft -= 1;
                 }
@@ -71,7 +71,7 @@ namespace hangman
 
             if (guessesLeft == 0)
             {
-                Console.WriteLine("Sorry, Game Over!/n");
+                Console.WriteLine("Sorry, Game Over!\n");
                 System.Threading.Thread.Sleep(1000);
                 Console.WriteLine($"The correct word is {chosenWord}.");
             }

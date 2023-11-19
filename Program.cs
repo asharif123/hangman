@@ -23,7 +23,6 @@ namespace hangman
             Console.WriteLine("Welcome to Hangman!\n");
             //1 second delay
             System.Threading.Thread.Sleep(1000);
-
             //user has 6 tries to guess the word correctly
             const int NUMBER_OF_TRIES = 6;
             const int NO_MORE_GUESSES_LEFT = 0;
@@ -66,7 +65,7 @@ namespace hangman
                     guessesLeft -= 1;
                 }
             }
-
+            //show correct word if user runs out of guesses
             if (guessesLeft == 0)
             {
                 Console.WriteLine("Sorry, Game Over!\n");

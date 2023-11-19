@@ -22,23 +22,59 @@ namespace hangman
     {
         static void Main(string[] args)
         {
-            //user has 8 tries to guess the word correctly
-            const int NUMBER_OF_TRIES = 8;
+            Console.WriteLine("Welcome to Hangman!\n");
+            //1 second delay
+            System.Threading.Thread.Sleep(1000);
 
+            //user has 6 tries to guess the word correctly
+            const int NUMBER_OF_TRIES = 6;
+            const int NO_MORE_GUESSES_LEFT = 0;
             //Fill a list with possible words
             var hangmanWords = new List<string>(){"jazz", "buzz", "lightyear", "cloud", "quiz", "scatter", "die", "excuse",
             "zinc", "number", "lucky", "amber", "cherish", "brisk", "bounty", "chili", "chilly", "chili", "ghost", "gross", 
              "harvest", "mask", "musk", "must", "parade", "plenty", "savory", "season", "spicy", "trail", "zesty", "zebra",
-            "ocean", "sea", "kingkong", "pingpong"};
-            
+            "ocean", "sea", "kingkong", "pingpong", "abruptly", "absurd", "abyss", "affix"};
+
             //Get a random entry from the list
+            Console.WriteLine("Selecting a random word...\n");
+            //2 second delay
+            System.Threading.Thread.Sleep(2000);
             Random rng = new Random();
             int randomWord = rng.Next(0, hangmanWords.Count+1);
-
             //print random word
             string chosenWord = hangmanWords[randomWord];
+            int guessesLeft = NUMBER_OF_TRIES;
+            Console.Write($"You have {NUMBER_OF_TRIES} tries to guess all the letters of the chosen word!\n");
 
             //use while loop to track user's guesses
+            //once user enters letter, check if letter is in the randomly chosen word
+            //if user guesses a letter correctly, show letter in blank line
+            //else, decrement Number of Tries
+            //if user prints all letters before number of tries, say success!
+            //if user reaches 0 tries before guessing every letter, print game over and show correct word!
+            while (guessesLeft > NO_MORE_GUESSES_LEFT)
+            {
+                Console.WriteLine("\nPlease enter a letter: \n");
+                string userGuess = Console.ReadLine().Trim().ToLower();
+                if (chosenWord.Contains(userGuess))
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine($"Sorry, {userGuess} does not exist!\n");
+                    Console.WriteLine($"You have {guessesLeft-1} left!\n");
+                    //decrement guessesLeft if user enters incorrect letter
+                    guessesLeft -= 1;
+                }
+            }
+
+            if (guessesLeft == 0)
+            {
+                Console.WriteLine("Sorry, Game Over!/n");
+                System.Threading.Thread.Sleep(1000);
+                Console.WriteLine($"The correct word is {chosenWord}.");
+            }
         }
     }
 }

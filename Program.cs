@@ -39,9 +39,9 @@ namespace hangman
             System.Threading.Thread.Sleep(2000);
 
             Random rng = new Random();
-            int randomWord = rng.Next(0, hangmanWords.Count + 1);
+            int randomIndex = rng.Next(0, hangmanWords.Count + 1);
             //print random word
-            string chosenWord = hangmanWords[randomWord];
+            string chosenWord = hangmanWords[randomIndex];
 
             Console.Write($"You have {NUMBER_OF_TRIES} tries to guess all the letters of the chosen word!\n");
 

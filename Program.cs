@@ -53,7 +53,6 @@ namespace hangman
                 hiddenWord += '_';
                 CHOSEN_WORD_INDEX++;
             }
-            Console.WriteLine(hiddenWord);
 
             Console.Write($"\nYou have {NUMBER_OF_TRIES} tries to guess all the letters of the chosen word!\n");
 

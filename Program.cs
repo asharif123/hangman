@@ -45,7 +45,17 @@ namespace hangman
             //print random word
             string chosenWord = hangmanWords[randomIndex];
 
-            Console.Write($"You have {NUMBER_OF_TRIES} tries to guess all the letters of the chosen word!\n");
+            //placeholder to store if user has guessed letters correctly
+            string hiddenWord = string.Empty;
+            int CHOSEN_WORD_INDEX = 0;
+            while (CHOSEN_WORD_INDEX < chosenWord.Length)
+            {
+                hiddenWord += '_';
+                CHOSEN_WORD_INDEX++;
+            }
+            Console.WriteLine(hiddenWord);
+
+            Console.Write($"\nYou have {NUMBER_OF_TRIES} tries to guess all the letters of the chosen word!\n");
 
             //use while loop to track user's guesses
             //if user guesses a letter correctly, show letter in blank line
@@ -58,13 +68,17 @@ namespace hangman
                 //read a single letter from user
                 char userGuess = Console.ReadKey().KeyChar;
                 //once user enters letter, check if letter is in the randomly chosen word
+                //if letter exists in the chosen word, find that specific letter in chosen word
+                //then place that word in specific position of the string
                 if (chosenWord.Contains(userGuess))
                 {
+                    Console.WriteLine(chosenWord.IndexOf(userGuess));
                 }
                 else
                 {
                     //decrement guessesLeft if user enters incorrect letter
                     guessesLeft -= 1;
+                    Console.WriteLine(hiddenWord);
                     Console.WriteLine($"\nSorry, the letter {userGuess} is not in the word!");
                     Console.WriteLine($"\nYou have {guessesLeft} guesses left!\n");
                 }

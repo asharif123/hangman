@@ -24,17 +24,18 @@ namespace hangman
             const int NUMBER_OF_TRIES = 6;
             const int NO_MORE_GUESSES_LEFT = 0;
             Random rng = new Random();
+
+            //Fill a list with possible words
+            var hangmanWords = new List<string>(){"jazz", "buzz", "lightyear", "cloud", "quiz", "scatter", "die", "excuse",
+            "zinc", "number", "lucky", "amber", "cherish", "brisk", "bounty", "chili", "chilly", "chili", "ghost", "gross",
+             "harvest", "mask", "musk", "must", "parade", "plenty", "savory", "season", "spicy", "trail", "zesty", "zebra",
+            "ocean", "sea", "kingkong", "pingpong", "abruptly", "absurd", "abyss", "affix"};
             int randomIndex = rng.Next(0, hangmanWords.Count + 1);
 
             Console.WriteLine("Welcome to Hangman!\n");
             //1 second delay
             System.Threading.Thread.Sleep(1000);
             int guessesLeft = NUMBER_OF_TRIES;
-            //Fill a list with possible words
-            var hangmanWords = new List<string>(){"jazz", "buzz", "lightyear", "cloud", "quiz", "scatter", "die", "excuse",
-            "zinc", "number", "lucky", "amber", "cherish", "brisk", "bounty", "chili", "chilly", "chili", "ghost", "gross",
-             "harvest", "mask", "musk", "must", "parade", "plenty", "savory", "season", "spicy", "trail", "zesty", "zebra",
-            "ocean", "sea", "kingkong", "pingpong", "abruptly", "absurd", "abyss", "affix"};
 
             //Get a random entry from the list
             Console.WriteLine("Selecting a random word...\n");

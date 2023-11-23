@@ -81,6 +81,13 @@ namespace hangman
                     Console.WriteLine($"\nSorry, the letter {userGuess} is not in the word!");
                     Console.WriteLine($"\nYou have {guessesLeft} guesses left!\n");
                 }
+                //if user guessed the correct word
+                if (hiddenWord == chosenWord)
+                {
+                    Console.WriteLine(hiddenWord + "\n");
+                    Console.WriteLine("Congratulations, you won the game!\n");
+                    break;
+                }
             }
             //show correct word if user runs out of guesses
             if (guessesLeft == 0)

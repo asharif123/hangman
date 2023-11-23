@@ -55,7 +55,8 @@ namespace hangman
             while (guessesLeft > NO_MORE_GUESSES_LEFT)
             {
                 Console.WriteLine("\nPlease enter a letter: \n");
-                string userGuess = Console.ReadLine().ToLower().Trim();
+                //read a single letter from user
+                char userGuess = Console.ReadKey().KeyChar;
                 //once user enters letter, check if letter is in the randomly chosen word
                 if (chosenWord.Contains(userGuess))
                 {

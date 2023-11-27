@@ -70,7 +70,7 @@ namespace hangman
             {
                 Console.WriteLine("\nPlease enter a letter: \n");
                 //read a single letter from user
-                char userGuess = Console.ReadKey().KeyChar;
+                char userGuess = Char.ToLower(Console.ReadKey().KeyChar);
 
                 //once user enters letter, check if letter is in the randomly chosen word
                 //use foreach method to iterate through each element in an array

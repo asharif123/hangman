@@ -44,6 +44,7 @@ namespace hangman
 
             //print random word
             string chosenWord = hangmanWords[randomIndex];
+            Console.WriteLine(chosenWord);
             //conver str to charArray
             char[] lettersOfChosenWord = chosenWord.ToCharArray();
             //placeholder to store if user has guessed letters correctly
@@ -54,7 +55,7 @@ namespace hangman
                 hiddenWord += '_';
                 CHOSEN_WORD_INDEX++;
             }
-            
+
             //convert str to charArray
             char[] lettersOfHiddenWord = hiddenWord.ToCharArray();
             Console.Write($"\nYou have {NUMBER_OF_TRIES} tries to guess all the letters of the chosen word!\n");
@@ -69,24 +70,33 @@ namespace hangman
                 Console.WriteLine("\nPlease enter a letter: \n");
                 //read a single letter from user
                 char userGuess = Console.ReadKey().KeyChar;
+
                 //once user enters letter, check if letter is in the randomly chosen word
-                //if letter exists in the chosen word, find that specific letter in chosen word
-                //then place that word in specific position of the string
-                if (chosenWord.Contains(userGuess))
+                //use foreach method to iterate through each element in an array
+                foreach (char letter in chosenWord)
                 {
+                    if (letter == userGuess)
+                    {
+                        //if letter is found in chosenWord, get index of letter                        
+                        int indexOfLetter = chosenWord.IndexOf(letter);
+                        //replace the '_' with letter if guessed correctly
+                        lettersOfHiddenWord[indexOfLetter] = letter;
+                        Console.WriteLine(lettersOfHiddenWord);
+                    }
                 }
-                else
+
+                //if letter is not in the chosen word
+                if (!chosenWord.Contains(userGuess))
                 {
-                    //decrement guessesLeft if user enters incorrect letter
+                    Console.WriteLine($"Sorry, {userGuess} is not in the word!\n");
                     guessesLeft -= 1;
-                    Console.WriteLine(hiddenWord);
-                    Console.WriteLine($"\nSorry, the letter {userGuess} is not in the word!");
-                    Console.WriteLine($"\nYou have {guessesLeft} guesses left!\n");
+                    Console.WriteLine($"You have {guessesLeft} guesses left!\n");
                 }
+
                 //if user guesses all letters correctly
-                if (hiddenWord == chosenWord)
+                if (lettersOfHiddenWord == lettersOfChosenWord)
                 {
-                    Console.WriteLine(hiddenWord + "\n");
+                    Console.WriteLine(lettersOfHiddenWord + "\n");
                     Console.WriteLine("Congratulations, you won the game!\n");
                     break;
                 }

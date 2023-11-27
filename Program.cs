@@ -44,7 +44,6 @@ namespace hangman
 
             //print random word
             string chosenWord = hangmanWords[randomIndex];
-            Console.WriteLine(chosenWord);
             //conver str to charArray
             char[] lettersOfChosenWord = chosenWord.ToCharArray();
             //placeholder to store if user has guessed letters correctly
@@ -78,9 +77,9 @@ namespace hangman
                     if (letter == userGuess)
                     {
                         //if letter is found in chosenWord, get index of letter                        
-                        int indexOfLetter = chosenWord.IndexOf(userGuess);
+                        int indexOfLetter = chosenWord.IndexOf(letter);
                         //replace the '_' with letter if guessed correctly
-                        lettersOfHiddenWord[indexOfLetter] = userGuess;
+                        lettersOfHiddenWord[indexOfLetter] = letter;
                         Console.WriteLine(lettersOfHiddenWord);
                     }
                 }
@@ -88,7 +87,7 @@ namespace hangman
                 //if letter is not in the chosen word
                 if (!chosenWord.Contains(userGuess))
                 {
-                    Console.WriteLine($"Sorry, {userGuess} is not in the word!\n");
+                    Console.WriteLine($"\nSorry, {userGuess} is not in the word!\n");
                     guessesLeft -= 1;
                     Console.WriteLine($"You have {guessesLeft} guesses left!\n");
                 }

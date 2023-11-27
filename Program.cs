@@ -79,7 +79,6 @@ namespace hangman
                     {
                         //if letter is found in chosenWord, get index of letter                        
                         int indexOfLetter = chosenWord.IndexOf(letter, 0);
-                        Console.WriteLine(indexOfLetter);
                         //replace the '_' with letter if guessed correctly
                         lettersOfHiddenWord[indexOfLetter] = letter;
                         Console.WriteLine(lettersOfHiddenWord);

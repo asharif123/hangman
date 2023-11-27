@@ -46,6 +46,7 @@ namespace hangman
             string chosenWord = hangmanWords[randomIndex];
             //conver str to charArray
             char[] lettersOfChosenWord = chosenWord.ToCharArray();
+            Console.WriteLine(lettersOfChosenWord);
             //placeholder to store if user has guessed letters correctly
             string hiddenWord = String.Empty;
             int CHOSEN_WORD_INDEX = 0;
@@ -57,6 +58,7 @@ namespace hangman
 
             //convert str to charArray
             char[] lettersOfHiddenWord = hiddenWord.ToCharArray();
+            Console.WriteLine(lettersOfHiddenWord);
             Console.Write($"\nYou have {NUMBER_OF_TRIES} tries to guess all the letters of the chosen word!\n");
 
             //use while loop to track user's guesses

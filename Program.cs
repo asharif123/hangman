@@ -46,7 +46,6 @@ namespace hangman
             string chosenWord = hangmanWords[randomIndex];
             //conver str to charArray
             char[] lettersOfChosenWord = chosenWord.ToCharArray();
-            Console.WriteLine(lettersOfChosenWord);
             //placeholder to store if user has guessed letters correctly
             string hiddenWord = String.Empty;
             int CHOSEN_WORD_INDEX = 0;
@@ -79,7 +78,7 @@ namespace hangman
                     if (letter == userGuess)
                     {
                         //if letter is found in chosenWord, get index of letter                        
-                        int indexOfLetter = chosenWord.IndexOf(letter);
+                        int indexOfLetter = chosenWord.IndexOf(letter, 0);
                         Console.WriteLine(indexOfLetter);
                         //replace the '_' with letter if guessed correctly
                         lettersOfHiddenWord[indexOfLetter] = letter;

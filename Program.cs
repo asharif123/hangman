@@ -80,6 +80,7 @@ namespace hangman
                     {
                         //if letter is found in chosenWord, get index of letter                        
                         int indexOfLetter = chosenWord.IndexOf(letter);
+                        Console.WriteLine(indexOfLetter);
                         //replace the '_' with letter if guessed correctly
                         lettersOfHiddenWord[indexOfLetter] = letter;
                         Console.WriteLine(lettersOfHiddenWord);
@@ -94,10 +95,10 @@ namespace hangman
                     Console.WriteLine($"You have {guessesLeft} guesses left!\n");
                 }
 
-                //if user guesses all letters correctly
-                if (lettersOfHiddenWord == lettersOfChosenWord)
+                //if user guesses all letters correctly, compare array of hidden and chosen words
+                bool isEqual = Enumerable.SequenceEqual(lettersOfHiddenWord, lettersOfChosenWord);
+                if (isEqual)
                 {
-                    Console.WriteLine(lettersOfHiddenWord + "\n");
                     Console.WriteLine("Congratulations, you won the game!\n");
                     break;
                 }

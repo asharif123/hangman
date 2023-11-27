@@ -30,7 +30,7 @@ namespace hangman
             "zinc", "number", "lucky", "amber", "cherish", "brisk", "bounty", "chili", "chilly", "chili", "ghost", "gross",
              "harvest", "mask", "musk", "must", "parade", "plenty", "savory", "season", "spicy", "trail", "zesty", "zebra",
             "ocean", "sea", "kingkong", "pingpong", "abruptly", "absurd", "abyss", "affix"};
-            int randomIndex = rng.Next(0, hangmanWords.Count + 1);
+            int randomIndex = rng.Next(0, hangmanWords.Count);
 
             Console.WriteLine("Welcome to Hangman!\n");
             //1 second delay

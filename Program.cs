@@ -43,9 +43,8 @@ namespace hangman
             System.Threading.Thread.Sleep(2000);
 
             //print random word
+            //no need to store as array since it is not being modified
             string chosenWord = hangmanWords[randomIndex];
-            //conver str to charArray
-            char[] lettersOfChosenWord = chosenWord.ToCharArray();
             //placeholder to store if user has guessed letters correctly
             string hiddenWord = String.Empty;
             int CHOSEN_WORD_INDEX = 0;
@@ -73,7 +72,7 @@ namespace hangman
 
                 //once user enters letter, check if letter is in the randomly chosen word
                 //use foreach method to iterate through each element in an array
-                foreach (char letter in lettersOfChosenWord)
+                foreach (char letter in chosenWord)
                 {
                     if (letter == userGuess)
                     {
@@ -94,7 +93,7 @@ namespace hangman
                 }
 
                 //if user guesses all letters correctly, compare array of hidden and chosen words
-                bool isEqual = Enumerable.SequenceEqual(lettersOfHiddenWord, lettersOfChosenWord);
+                bool isEqual = Enumerable.SequenceEqual(lettersOfHiddenWord, chosenWord.ToCharArray());
                 if (isEqual)
                 {
                     Console.WriteLine("Congratulations, you won the game!\n");

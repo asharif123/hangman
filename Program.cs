@@ -73,12 +73,12 @@ namespace hangman
 
                 //once user enters letter, check if letter is in the randomly chosen word
                 //use foreach method to iterate through each element in an array
-                foreach (char letter in chosenWord)
+                foreach (char letter in lettersOfChosenWord)
                 {
                     if (letter == userGuess)
                     {
                         //if letter is found in chosenWord, get index of letter                        
-                        int indexOfLetter = chosenWord.IndexOf(letter, 0);
+                        int indexOfLetter = chosenWord.IndexOf(letter);
                         //replace the '_' with letter if guessed correctly
                         lettersOfHiddenWord[indexOfLetter] = letter;
                         Console.WriteLine(lettersOfHiddenWord);

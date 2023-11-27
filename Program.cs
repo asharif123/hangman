@@ -101,6 +101,7 @@ namespace hangman
                     break;
                 }
             }
+
             //show correct word if user runs out of guesses
             if (guessesLeft == 0)
             {

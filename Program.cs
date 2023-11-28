@@ -23,6 +23,7 @@ namespace hangman
             //user has 6 tries to guess the word correctly
             const int NUMBER_OF_TRIES = 6;
             const int NO_MORE_GUESSES_LEFT = 0;
+            const int STARTING_INDEX_OF_UNDERLINE = 0;
             Random rng = new Random();
 
             //Fill a list with possible words
@@ -45,18 +46,15 @@ namespace hangman
             //print random word
             //no need to store as array since it is not being modified
             string chosenWord = hangmanWords[randomIndex];
+            
             //placeholder to store if user has guessed letters correctly
-            string hiddenWord = String.Empty;
-            int CHOSEN_WORD_INDEX = 0;
-            while (CHOSEN_WORD_INDEX < chosenWord.Length)
+            int length = chosenWord.Length;
+            char[] hiddenWord = new char[length];
+            for (int startingIndex = STARTING_INDEX_OF_UNDERLINE; startingIndex < length; startingIndex++)
             {
-                hiddenWord += '_';
-                CHOSEN_WORD_INDEX++;
+                hiddenWord[startingIndex] = '_';
             }
-
-            //convert str to charArray
-            char[] lettersOfHiddenWord = hiddenWord.ToCharArray();
-            Console.WriteLine(lettersOfHiddenWord);
+            Console.WriteLine(hiddenWord);
             Console.Write($"\nYou have {NUMBER_OF_TRIES} tries to guess all the letters of the chosen word!\n");
 
             //use while loop to track user's guesses
@@ -79,8 +77,8 @@ namespace hangman
                         //if letter is found in chosenWord, get index of letter                        
                         int indexOfLetter = chosenWord.IndexOf(letter);
                         //replace the '_' with letter if guessed correctly
-                        lettersOfHiddenWord[indexOfLetter] = letter;
-                        Console.WriteLine(lettersOfHiddenWord);
+                        hiddenWord[indexOfLetter] = letter;
+                        Console.WriteLine(hiddenWord);
                     }
                 }
 
@@ -93,7 +91,7 @@ namespace hangman
                 }
 
                 //if user guesses all letters correctly, compare array of hidden and chosen words
-                bool isEqual = Enumerable.SequenceEqual(lettersOfHiddenWord, chosenWord.ToCharArray());
+                bool isEqual = Enumerable.SequenceEqual(hiddenWord, chosenWord.ToCharArray());
                 if (isEqual)
                 {
                     Console.WriteLine("Congratulations, you won the game!\n");

@@ -47,12 +47,12 @@ namespace hangman
             //no need to store as array since it is not being modified
             string chosenWord = hangmanWords[randomIndex];
             
-            //placeholder to store if user has guessed letters correctly
+            //create char array with for loop to create array of '_';
             int length = chosenWord.Length;
             char[] hiddenWord = new char[length];
-            for (int startingIndex = STARTING_INDEX_OF_UNDERLINE; startingIndex < length; startingIndex++)
+            for (int indexOfUnderline = STARTING_INDEX_OF_UNDERLINE; indexOfUnderline < length; indexOfUnderline++)
             {
-                hiddenWord[startingIndex] = '_';
+                hiddenWord[indexOfUnderline] = '_';
             }
             Console.WriteLine(hiddenWord);
             Console.Write($"\nYou have {NUMBER_OF_TRIES} tries to guess all the letters of the chosen word!\n");

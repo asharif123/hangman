@@ -42,7 +42,8 @@ namespace hangman
              "quizzes", "rhythm", "rhino", "racecar", "scratch", "sphinx", "staff", "strength", "stretch", "stymied",
             "subway", "swindle", "swipe", "transcript", "testing", "transgress", "truckdriver", "twelfth", "twizzle",
              "twinkle", "unzip", "unwrap", "unworthy", "vixen", "vodka", "voodoo", "vortex", "wave", "wavy", "waxy", "wheel",
-            "yellow", "yummy", "yacht", "zephyr", "zigzag", "zygote", "zipper", "zodiac", "zombie", "sprite", "eleven", "twelve"};
+            "yellow", "yummy", "yacht", "zephyr", "zigzag", "zygote", "zipper", "zodiac", "zombie", "sprite", "eleven", "twelve",
+            "wizard"};
             int randomIndex = rng.Next(0, hangmanWords.Count);
 
             Console.WriteLine("Welcome to Hangman!\n");

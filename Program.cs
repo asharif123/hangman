@@ -70,12 +70,14 @@ namespace hangman
                 Console.WriteLine("\nPlease enter a letter: \n");
                 //read a single letter from user
                 char userGuess = Char.ToLower(Console.ReadKey().KeyChar);
+                //create newline when user enters letter, or else letter inputted will be adjacent to hiddenWord
+                Console.WriteLine();
 
                 //once user enters letter, check if letter is in the randomly chosen word by looping chosen word
                 //if found replace underline with letter
                 for (int indexOfWord = STARTING_INDEX_OF_WORD; indexOfWord < length; indexOfWord++)
                 {
-                    if (chosenWord[indexOfWord] == userGuess)
+                    if (userGuess == chosenWord[indexOfWord])
                     {
                         hiddenWord[indexOfWord] = userGuess;
                     }

@@ -25,7 +25,7 @@ namespace hangman
             const int NO_MORE_GUESSES_LEFT = 0;
             const int STARTING_INDEX_OF_UNDERLINE = 0;
             const int STARTING_INDEX_OF_WORD = 0;
-
+            const char UNDERLINE = '_';
             Random rng = new Random();
             //Fill a list with possible words
             var hangmanWords = new List<string>(){"jazz", "buzz", "lightyear", "cloud", "quiz", "scatter", "die", "excuse",
@@ -53,7 +53,7 @@ namespace hangman
             char[] hiddenWord = new char[length];
             for (int indexOfUnderline = STARTING_INDEX_OF_UNDERLINE; indexOfUnderline < length; indexOfUnderline++)
             {
-                hiddenWord[indexOfUnderline] = '_';
+                hiddenWord[indexOfUnderline] = UNDERLINE;
             }
             Console.Write($"\nYou have {NUMBER_OF_TRIES} tries to guess all the letters of the chosen word!\n");
 
@@ -90,9 +90,8 @@ namespace hangman
                     Console.WriteLine($"You have {guessesLeft} guesses left!\n");
                 }
 
-                //if user guesses all letters correctly, compare array of hidden and chosen words
-                bool isEqual = Enumerable.SequenceEqual(hiddenWord, chosenWord.ToCharArray());
-                if (isEqual)
+                //if there are no more underlines in hiddenWord, user has won the game
+                if (!hiddenWord.Contains(UNDERLINE))
                 {
                     Console.WriteLine($"The word is {chosenWord}. Congratulations, you won the game!\n");
                     break;

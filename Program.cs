@@ -55,7 +55,6 @@ namespace hangman
             {
                 hiddenWord[indexOfUnderline] = '_';
             }
-            Console.WriteLine(chosenWord);
             Console.Write($"\nYou have {NUMBER_OF_TRIES} tries to guess all the letters of the chosen word!\n");
 
             //use while loop to track user's guesses

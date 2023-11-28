@@ -31,7 +31,18 @@ namespace hangman
             var hangmanWords = new List<string>(){"jazz", "buzz", "lightyear", "cloud", "quiz", "scatter", "die", "excuse",
             "zinc", "number", "lucky", "amber", "cherish", "brisk", "bounty", "chili", "chilly", "chili", "ghost", "gross",
              "harvest", "mask", "musk", "must", "parade", "plenty", "savory", "season", "spicy", "trail", "zesty", "zebra",
-            "ocean", "sea", "kingkong", "pingpong", "abruptly", "absurd", "abyss", "affix"};
+            "ocean", "sea", "kingkong", "pingpong", "abruptly", "absurd", "abyss", "affix", "axiom", "cobweb", "askew",
+             "avenue", "awkward", "azure", "bagpipes", "bandwagon", "beekeeper", "blizzard", "bookworm", "jest", "buffalo",
+            "buffoon", "buzzing", "caliph", "cobweb", "croquet", "curacao", "crypt", "cycle", "daiquiri", "disavow", "duplex",
+            "dwarves", "embezzle", "empty", "equip", "espionage", "exodus", "fakery", "faking", "fishhook", "flapjack",
+            "flopping", "flyby", "foxglove", "fuchsia", "funny", "galaxy", "galvanize", "gazebo", "glamour", "grandeur",
+            "gnarly", "gossip", "hyphen", "haphazard", "icebox", "injury", "ivory", "jackpot", "jaundice", "jaywalk", "jigsaw",
+            "jockey", "joking", "juicy", "jumbo", "kayak", "kazoo", "keyhole", "knapsack", "lengths", "luxury", "lymph",
+            "matrix", "mystify", "mighty", "numbskull", "nimrod", "onyx", "ovary", "oxidize", "oxygen", "pajama", "quartz",
+             "quizzes", "rhythm", "rhino", "racecar", "scratch", "sphinx", "staff", "strength", "stretch", "stymied",
+            "subway", "swindle", "swipe", "transcript", "testing", "transgress", "truckdriver", "twelfth", "twizzle",
+             "twinkle", "unzip", "unwrap", "unworthy", "vixen", "vodka", "voodoo", "vortex", "wave", "wavy", "waxy", "wheel",
+            "yellow", "yummy", "yacht", "zephyr", "zigzag", "zygote", "zipper", "zodiac", "zombie", "sprite", "eleven", "twelve"};
             int randomIndex = rng.Next(0, hangmanWords.Count);
 
             Console.WriteLine("Welcome to Hangman!\n");

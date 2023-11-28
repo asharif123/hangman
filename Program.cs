@@ -24,8 +24,9 @@ namespace hangman
             const int NUMBER_OF_TRIES = 6;
             const int NO_MORE_GUESSES_LEFT = 0;
             const int STARTING_INDEX_OF_UNDERLINE = 0;
-            Random rng = new Random();
+            const int STARTING_INDEX_OF_WORD = 0;
 
+            Random rng = new Random();
             //Fill a list with possible words
             var hangmanWords = new List<string>(){"jazz", "buzz", "lightyear", "cloud", "quiz", "scatter", "die", "excuse",
             "zinc", "number", "lucky", "amber", "cherish", "brisk", "bounty", "chili", "chilly", "chili", "ghost", "gross",
@@ -46,7 +47,7 @@ namespace hangman
             //print random word
             //no need to store as array since it is not being modified
             string chosenWord = hangmanWords[randomIndex];
-            
+
             //create char array with for loop to create array of '_';
             int length = chosenWord.Length;
             char[] hiddenWord = new char[length];
@@ -54,7 +55,7 @@ namespace hangman
             {
                 hiddenWord[indexOfUnderline] = '_';
             }
-            Console.WriteLine(hiddenWord);
+            Console.WriteLine(chosenWord);
             Console.Write($"\nYou have {NUMBER_OF_TRIES} tries to guess all the letters of the chosen word!\n");
 
             //use while loop to track user's guesses
@@ -68,16 +69,13 @@ namespace hangman
                 //read a single letter from user
                 char userGuess = Char.ToLower(Console.ReadKey().KeyChar);
 
-                //once user enters letter, check if letter is in the randomly chosen word
-                //use foreach method to iterate through each element in an array
-                foreach (char letter in chosenWord)
+                //once user enters letter, check if letter is in the randomly chosen word by looping chosen word
+                //if found replace underline with letter
+                for (int indexOfWord = STARTING_INDEX_OF_WORD; indexOfWord < length; indexOfWord++)
                 {
-                    if (letter == userGuess)
+                    if (chosenWord[indexOfWord] == userGuess)
                     {
-                        //if letter is found in chosenWord, get index of letter                        
-                        int indexOfLetter = chosenWord.IndexOf(letter);
-                        //replace the '_' with letter if guessed correctly
-                        hiddenWord[indexOfLetter] = letter;
+                        hiddenWord[indexOfWord] = userGuess;
                         Console.WriteLine(hiddenWord);
                     }
                 }

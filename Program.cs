@@ -65,6 +65,8 @@ namespace hangman
             //if user reaches 0 tries before guessing every letter, print game over and show correct word!
             while (guessesLeft > NO_MORE_GUESSES_LEFT)
             {
+                //show hiddenword as user inputs correct/incorrect letters
+                Console.WriteLine(hiddenWord);
                 Console.WriteLine("\nPlease enter a letter: \n");
                 //read a single letter from user
                 char userGuess = Char.ToLower(Console.ReadKey().KeyChar);
@@ -76,7 +78,6 @@ namespace hangman
                     if (chosenWord[indexOfWord] == userGuess)
                     {
                         hiddenWord[indexOfWord] = userGuess;
-                        Console.WriteLine(hiddenWord);
                     }
                 }
 
@@ -92,7 +93,7 @@ namespace hangman
                 bool isEqual = Enumerable.SequenceEqual(hiddenWord, chosenWord.ToCharArray());
                 if (isEqual)
                 {
-                    Console.WriteLine("Congratulations, you won the game!\n");
+                    Console.WriteLine($"The word is {chosenWord}. Congratulations, you won the game!\n");
                     break;
                 }
             }

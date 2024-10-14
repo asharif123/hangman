@@ -28,6 +28,7 @@ namespace hangman
             const char UNDERLINE = '_';
             Random rng = new Random();
             //Fill a list with possible words
+ 
             var hangmanWords = new List<string>(){"jazz", "buzz", "lightyear", "cloud", "quiz", "scatter", "die", "excuse",
             "zinc", "number", "lucky", "amber", "cherish", "brisk", "bounty", "chili", "chilly", "chili", "ghost", "gross",
              "harvest", "mask", "musk", "must", "parade", "plenty", "savory", "season", "spicy", "trail", "zesty", "zebra",
@@ -60,9 +61,11 @@ namespace hangman
             //no need to store as array since it is not being modified
             string chosenWord = hangmanWords[randomIndex];
 
-            //create char array with for loop to create array of '_';
+            //print length of randomly chosen word to use as blueprint to create underlines;
             int length = chosenWord.Length;
+            //create char array with for loop to create array of '_';
             char[] hiddenWord = new char[length];
+
             for (int indexOfUnderline = STARTING_INDEX_OF_UNDERLINE; indexOfUnderline < length; indexOfUnderline++)
             {
                 hiddenWord[indexOfUnderline] = UNDERLINE;
@@ -111,7 +114,7 @@ namespace hangman
             }
 
             //show correct word if user runs out of guesses
-            if (guessesLeft == 0)
+            if (guessesLeft == NO_MORE_GUESSES_LEFT)
             {
                 Console.WriteLine("Sorry, Game Over!\n");
                 System.Threading.Thread.Sleep(1000);
